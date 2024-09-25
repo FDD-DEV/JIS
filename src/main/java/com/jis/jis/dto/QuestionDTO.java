@@ -16,11 +16,8 @@ import lombok.NoArgsConstructor;
 public class QuestionDTO {
 
     private Long id;
+    private Long topic;
     private String questionText;
     private List<Answer> answers;
 
 }
-
-
-git config --global user.name "FDD-DEV"
-git config --global user.email "fdd.dev.team@gmail.com"

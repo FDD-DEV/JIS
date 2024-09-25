@@ -12,13 +12,10 @@ import com.jis.jis.domain.Question;
 @Repository
 public interface QuestionRepository extends JpaRepository<Question, Long>{
 
-    List<Question> findByTopicId(Long topicId);
+    List<Question> findByTopic(Long topic);
 
-    @Query("SELECT q FROM Question q WHERE q.topic.id IN :topicIds")
-    List<Question> findByTopicIds(List<Long> topicIds);
-
-    @Query("SELECT q FROM Question q WHERE q.topic.id IN :topicIds")
-    List<Question> findQuestionsByTopicIds(@Param("topicIds") List<Long> topicIds);
+    @Query("SELECT q FROM Question q WHERE q.topic IN :topics")
+    List<Question> findByTopics(@Param("topics") List<Long> topics);
 
 
 }

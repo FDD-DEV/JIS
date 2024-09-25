@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class AnswerDTO {
 
     private Long id;
-    private QuestionDTO questionDTO;
+    private Long question;
     private String answerText;
     private Boolean isCorrect;
     private String explanation;

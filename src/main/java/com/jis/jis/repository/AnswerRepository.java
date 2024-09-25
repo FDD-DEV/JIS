@@ -10,6 +10,6 @@ import com.jis.jis.domain.Answer;
 @Repository
 public interface AnswerRepository extends JpaRepository<Answer, Long>{
 
-    List<Answer> findByQuestionId(Long questionId);
+    List<Answer> findByQuestion(Long question);
 
 }

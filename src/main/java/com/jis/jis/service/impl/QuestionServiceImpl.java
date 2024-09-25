@@ -26,18 +26,19 @@ public class QuestionServiceImpl implements QuestionService{
     public List<QuestionDTO> getQuestionsByTopics(TopicQuestionRequestDTO requests) {
 
         // Obtenemos todas las preguntas para los topicIds
-        List<Question> allQuestions = questionRepository.findQuestionsByTopicIds(requests.getTopicId());
+        List<Question> allQuestions = questionRepository.findByTopics(requests.getTopicId());
 
         // Agrupamos las preguntas por topicId
         Map<Long, List<Question>> questionsByTopic = allQuestions.stream()
-            .collect(Collectors.groupingBy(question -> question.getTopic().getId()));
+            .collect(Collectors.groupingBy(question -> question.getTopic()));
 
         // Limitamos las preguntas por cada tema
         List<Question> list = questionsByTopic.values().stream()
             .flatMap(questions -> questions.stream().limit(requests.getNumberOfQuestions()))
             .collect(Collectors.toList());
 
-        return list.stream().map(q -> questionMapper.toDTO(q)).collect(Collectors.toList()); 
+        List<QuestionDTO> response = list.stream().map(q -> questionMapper.toDTO(q)).collect(Collectors.toList());
+        return response;
     }
 
 }
