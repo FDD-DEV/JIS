@@ -20,7 +20,3 @@ public class QuestionDTO {
     private List<Answer> answers;
 
 }
-
-
-git config --global user.name "FDD-DEV"
-git config --global user.email "fdd.dev.team@gmail.com"
