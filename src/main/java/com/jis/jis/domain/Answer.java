@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @Entity
-@Table(name = "answers", schema = "jis_training")
+@Table(name = "answers")
 public class Answer {
 
     @Id
